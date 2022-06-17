@@ -1,0 +1,50 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.SubmissionBFAA" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/black_dark</item>
+        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/black_dark</item>
+        <item name="colorSecondaryVariant">@color/black_dark</item>
+        <item name="colorOnSecondary">@color/white_bg</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.SubmissionBFAA.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="textTitleWhite">
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:textColor">@color/white_bg</item>
+        <item name="android:textSize">@dimen/textSizeTitle</item>
+    </style>
+
+    <style name="textTitleBlack">
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:textColor">@color/black_dark</item>
+        <item name="android:textSize">@dimen/textSizeTitle</item>
+    </style>
+
+    <style name="textsubTitleWhite">
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/grey_blue</item>
+        <item name="android:textSize">@dimen/textSizeSubTitle</item>
+    </style>
+
+    <style name="textRegularBlack">
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/black_dark</item>
+        <item name="android:textSize">@dimen/textSizeRegular</item>
+    </style>
+
+    <style name="Theme.SubmissionBFAA.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.SubmissionBFAA.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

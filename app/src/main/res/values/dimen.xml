@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="distance_16">16dp</dimen>
+    <dimen name="distance_8">8dp</dimen>
+    <dimen name="distance_24">24dp</dimen>
+    <dimen name="distance_32">32dp</dimen>\
+
+    <dimen name="textSizeTitle">24sp</dimen>
+    <dimen name="textSizeSubTitle">16sp</dimen>
+    <dimen name="textSizeRegular">12sp</dimen>
+
+</resources>
