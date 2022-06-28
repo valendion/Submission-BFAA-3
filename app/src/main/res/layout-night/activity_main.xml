@@ -10,7 +10,7 @@
         android:id="@+id/mainToolbar"
         android:layout_width="match_parent"
         app:menu="@menu/main_menu"
-        app:title="Github Serch User"
+        app:title="Github Search User"
         app:titleTextColor="@color/white_bg"
         android:background="@color/grey_primary"
         app:layout_constraintTop_toTopOf="parent"
@@ -83,5 +83,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/emptyGroupMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="emptyDataTv, noDataIv"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

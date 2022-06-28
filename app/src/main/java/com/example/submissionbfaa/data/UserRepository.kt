@@ -21,15 +21,10 @@ class UserRepository(
             try {
                 val response = apiServiceUser.getUserGithub()
                 val userList = response.map {
-                    val isMarked = userDao.isNewsBookmarked(it.login)
+                    val isMarked = userDao.isUserBookmarked(it.login)
                     UserEntity(
                         it.login,
                         it.avatarUrl,
-                        it.name,
-                        it.company,
-                        it.location,
-                        it.followers,
-                        it.following,
                         isMarked
                     )
                 }

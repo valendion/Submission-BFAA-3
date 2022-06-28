@@ -34,42 +34,55 @@ android {
         jvmTarget = '1.8'
     }
     buildFeatures {
-        viewBinding = true
+        viewBinding true
     }
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
+    def roomVersion = '2.4.2'
+    def koin_version= "3.2.0"
+
+    implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
 
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
+    implementation "com.squareup.retrofit2:converter-moshi:2.4.0"
 
-    // JSON Parsing
-    implementation "com.squareup.moshi:moshi-kotlin:1.11.0"
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.8.0'
-    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
-    implementation "com.squareup.retrofit2:converter-moshi:2.4.0"
+
+    //Moshi
+    def moshiVersion = '1.13.0'
+    implementation "com.squareup.moshi:moshi:$moshiVersion"
+    implementation "com.squareup.moshi:moshi-kotlin:$moshiVersion"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion"
 
     //Kotlin x coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.0"
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.0'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
 
     //CircleImageView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     //room
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
-    implementation "androidx.room:room-runtime:2.4.0"
-    kapt "androidx.room:room-compiler:2.4.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
+    implementation("androidx.room:room-ktx:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+
+    //Koin
+    implementation "io.insert-koin:koin-android:$koin_version"
+
+    //Coil
+    implementation("io.coil-kt:coil:2.1.0")
 
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'

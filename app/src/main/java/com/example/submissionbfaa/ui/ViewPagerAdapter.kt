@@ -17,6 +17,5 @@ class ViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
             0 -> ItemFragment(1)
             else -> ItemFragment(2)
         }
-
     }
 }

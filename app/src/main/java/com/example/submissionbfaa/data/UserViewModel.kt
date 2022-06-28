@@ -1,9 +1,7 @@
 package com.example.submissionbfaa.data
 
-import android.view.View
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.submissionbfaa.data.UserRepository
 import com.example.submissionbfaa.data.local.entity.UserEntity
 import com.example.submissionbfaa.utils.CoroutineHelper
 import kotlinx.coroutines.launch
@@ -24,5 +22,4 @@ class UserViewModel(private val userRepository: UserRepository): ViewModel() {
             CoroutineHelper.oi { userRepository.setUserMarked(userEntity, false) }
         }
     }
-
 }

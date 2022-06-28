@@ -1,4 +1,4 @@
-package com.example.submissionbfaa.utils
+package com.example.submissionbfaa.data.remote.network
 
 import com.example.submissionbfaa.BuildConfig
 import okhttp3.Interceptor

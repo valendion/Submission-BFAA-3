@@ -1,12 +1,10 @@
 package com.example.submissionbfaa.data.local.room
 
 import androidx.lifecycle.LiveData
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.example.submissionbfaa.data.local.entity.UserEntity
 
+@Dao
 interface UserDao {
 
     @Query("SELECT * FROM user")
@@ -25,6 +23,6 @@ interface UserDao {
     suspend fun deleteAll()
 
     @Query("SELECT EXISTS(SELECT * FROM user WHERE login = :login AND isFavorite = 1)")
-    suspend fun isNewsBookmarked(login: String): Boolean
+    suspend fun isUserBookmarked(login: String): Boolean
 
 }

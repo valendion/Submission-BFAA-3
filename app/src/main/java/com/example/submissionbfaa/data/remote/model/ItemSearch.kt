@@ -8,5 +8,5 @@ data class ItemSearch(
     var totalCount: Int,
 
     @Json(name = "items")
-    var items: MutableList<User>
+    var items: MutableList<DetailUser>
 )
