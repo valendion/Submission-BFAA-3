@@ -5,17 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white_bg"
-    tools:context=".ui.DetailActivity">
+    tools:context=".ui.detail_activity.DetailActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/mainToolbar"
         android:layout_width="match_parent"
-        app:menu="@menu/setting_menu"
-        app:title="Detail User"
-        app:titleTextColor="@color/white"
+        android:layout_height="wrap_content"
         android:background="@color/black_dark"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_height="wrap_content"/>
+        app:menu="@menu/setting_menu"
+        app:title="Detail User"
+        app:titleTextColor="@color/white" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/userGithubIv"
@@ -23,9 +23,9 @@
         android:layout_height="100dp"
         android:layout_marginTop="@dimen/distance_16"
         android:src="@drawable/ic_person_24"
+        android:visibility="visible"
         app:civ_border_color="@color/black"
         app:civ_border_width="1dp"
-        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainToolbar" />
@@ -34,10 +34,10 @@
         android:id="@+id/btnFavorite"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        app:layout_constraintTop_toTopOf="@+id/userGithubIv"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="@dimen/distance_16"
-        android:src="@drawable/ic_favorite_border_24"/>
+        android:src="@drawable/ic_favorite_border_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/userGithubIv" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/nameTv"
@@ -64,58 +64,60 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/locationTv"
+        style="@style/textRegularBlack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:visibility="visible"
-        android:gravity="center"
         android:drawablePadding="@dimen/distance_8"
-        style="@style/textRegularBlack"
+        android:gravity="center"
         android:text="@string/parepare_indonesia"
+        android:visibility="visible"
         app:drawableStartCompat="@drawable/ic_location"
         app:layout_constraintStart_toStartOf="@+id/followerTv"
         app:layout_constraintTop_toBottomOf="@+id/followerTv" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textCompany"
-        android:layout_width="wrap_content"
+        style="@style/textRegularBlack"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:visibility="visible"
-        android:gravity="center"
-        style="@style/textRegularBlack"
-        android:text="SUN"
         android:drawablePadding="@dimen/distance_8"
+        android:gravity="start"
+        android:text="SUN"
+        android:visibility="visible"
         app:drawableStartCompat="@drawable/ic_company"
+        app:layout_constraintEnd_toEndOf="@+id/followingTv"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/locationTv"
         app:layout_constraintTop_toBottomOf="@+id/locationTv" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/followerTv"
+        style="@style/textRegularBlack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="visible"
         android:layout_marginTop="@dimen/distance_16"
-        android:text="@string/follower"
-        android:gravity="center"
-        style="@style/textRegularBlack"
         android:drawablePadding="@dimen/distance_8"
+        android:gravity="center"
+        android:text="@string/follower"
+        android:visibility="visible"
         app:drawableStartCompat="@drawable/follower"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/followingTv"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/usernameTv" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/followingTv"
+        style="@style/textRegularBlack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="visible"
-        android:text="@string/following"
-        android:gravity="center"
         android:drawablePadding="@dimen/distance_8"
-        style="@style/textRegularBlack"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"
+        android:text="@string/following"
+        android:visibility="visible"
         app:drawableStartCompat="@drawable/following"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/followerTv"
         app:layout_constraintTop_toTopOf="@+id/followerTv" />
 
@@ -128,7 +130,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textCompany"
-        app:tabIndicatorColor="@color/white_bg"
+        app:tabIndicatorColor="@color/grey_blue"
         app:tabTextColor="@color/white_bg" />
 
     <androidx.viewpager2.widget.ViewPager2
@@ -137,7 +139,28 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/followTL" />
+        app:layout_constraintTop_toBottomOf="@+id/followTL"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/pb_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="visible"
+        app:indicatorColor="@color/blue_primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="userGithubIv,btnFavorite,followerTv,
+        followingTv,followTL,locationTv,textCompany,nameTv,usernameTv,followVP" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

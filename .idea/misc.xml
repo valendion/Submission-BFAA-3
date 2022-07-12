@@ -6,6 +6,8 @@
         <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.12" />
         <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/drawable/avatar_1.xml" value="0.2545" />
         <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/drawable/avatar_9.xml" value="0.2545" />
+        <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/drawable/ic_favorite_24.xml" value="0.1135" />
+        <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/drawable/ic_favorite_white.xml" value="0.1135" />
         <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2545" />
         <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/drawable/ic_no_data.xml" value="0.2545" />
         <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/drawable/ic_search_24_black.xml" value="0.12" />
@@ -16,22 +18,24 @@
         <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/drawable/side_nav_bar.xml" value="0.2545" />
         <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/font/roboto.xml" value="0.2791666666666667" />
         <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/font/roboto_medium.xml" value="0.2791666666666667" />
-        <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/layout-night/activity_detail.xml" value="0.264" />
+        <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/layout-night/activity_detail.xml" value="0.1" />
         <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/layout-night/activity_favorite.xml" value="0.176" />
-        <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/layout-night/activity_main.xml" value="0.2" />
+        <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/layout-night/activity_main.xml" value="0.10126582278481013" />
         <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/layout-night/activity_splash_screen.xml" value="0.24365942028985507" />
+        <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/layout-night/fragment_item.xml" value="0.1" />
         <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/layout-night/item_list_home.xml" value="0.4" />
         <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/layout-w1240dp/app_bar_main.xml" value="0.4" />
         <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/layout-w1240dp/content_main.xml" value="0.133984375" />
         <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/layout-w600dp/app_bar_main.xml" value="0.17864583333333334" />
         <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/layout-w600dp/content_main.xml" value="0.17864583333333334" />
-        <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/layout/activity_detail.xml" value="0.536" />
+        <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/layout/activity_detail.xml" value="0.2" />
         <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/layout/activity_favorite.xml" value="0.264" />
-        <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/layout/activity_main2.xml" value="0.12107396149949341" />
         <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/layout/activity_splash_screen.xml" value="0.264" />
         <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/layout/app_bar_main.xml" value="0.15534420289855072" />
         <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/layout/content_favorite.xml" value="0.24365942028985507" />
+        <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/layout/fragment_item.xml" value="0.24895833333333334" />
         <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/layout/fragment_reflow.xml" value="0.15534420289855072" />
         <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/layout/fragment_second.xml" value="0.24365942028985507" />
         <entry key="..\:/file/Latihan-Dicoding/SubmissionBFAA/app/src/main/res/layout/fragment_settings.xml" value="0.15534420289855072" />

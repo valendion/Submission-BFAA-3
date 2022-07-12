@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    tools:context=".ui.DetailActivity">
+    tools:context=".ui.detail_activity.DetailActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/mainToolbar"
@@ -50,7 +49,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userGithubIv" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/usernameTv"
         style="@style/textsubTitleWhite"
         android:layout_width="wrap_content"
@@ -62,19 +61,35 @@
         app:layout_constraintStart_toStartOf="@+id/nameTv"
         app:layout_constraintTop_toBottomOf="@+id/nameTv" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/locationTv"
+        style="@style/textRegularWhite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:visibility="visible"
+        android:drawablePadding="@dimen/distance_8"
         android:gravity="center"
-        style="@style/textRegularWhite"
         android:text="@string/parepare_indonesia"
+        android:visibility="visible"
         app:drawableStartCompat="@drawable/ic_location"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/followerTv"
         app:layout_constraintTop_toBottomOf="@+id/followerTv" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textCompany"
+        style="@style/textRegularWhite"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:drawablePadding="@dimen/distance_8"
+        android:gravity="start"
+        android:text="SUN"
+        android:visibility="visible"
+        app:drawableStartCompat="@drawable/ic_company"
+        app:layout_constraintEnd_toEndOf="@+id/followingTv"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/locationTv"
+        app:layout_constraintTop_toBottomOf="@+id/locationTv" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/followerTv"
@@ -113,7 +128,7 @@
         android:background="@color/grey_primary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/locationTv"
+        app:layout_constraintTop_toBottomOf="@+id/textCompany"
         app:tabIndicatorColor="@color/white_bg"
         app:tabTextColor="@color/white_bg" />
 
@@ -123,7 +138,28 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/followTL" />
+        app:layout_constraintTop_toBottomOf="@+id/followTL"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/pb_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:indeterminate="true"
+        app:indicatorColor="@color/blue_primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="userGithubIv,btnFavorite,followerTv,
+        followingTv,followTL,locationTv,textCompany,nameTv,usernameTv,followVP" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

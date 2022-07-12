@@ -6,7 +6,8 @@ import com.example.submissionbfaa.data.UserViewModel
 import com.example.submissionbfaa.data.ViewModelFactory
 import com.example.submissionbfaa.data.local.room.databaseModule
 import com.example.submissionbfaa.data.remote.network.networkModule
-import com.example.submissionbfaa.ui.UserAdapter
+import com.example.submissionbfaa.ui.detail_activity.FollowAdapter
+import com.example.submissionbfaa.ui.main_activity.UserAdapter
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -23,6 +24,8 @@ val appModule = module {
     }
 
     factory { UserAdapter() }
+
+    factory { FollowAdapter() }
 
     viewModel { UserViewModel(get()) }
 

@@ -1,4 +1,4 @@
-package com.example.submissionbfaa.ui
+package com.example.submissionbfaa.ui.main_activity
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -8,13 +8,18 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.submissionbfaa.R
+import com.example.submissionbfaa.data.UserViewModel
+import com.example.submissionbfaa.data.ViewModelFactory
 import com.example.submissionbfaa.data.local.entity.UserEntity
 import com.example.submissionbfaa.databinding.ItemListHomeBinding
-import com.example.submissionbfaa.ui.UserAdapter.UserHolder
+import com.example.submissionbfaa.ui.detail_activity.DetailActivity
+import com.example.submissionbfaa.ui.main_activity.UserAdapter.UserHolder
+import org.koin.android.ext.android.inject
+import androidx.activity.viewModels as viewModels
 
 class UserAdapter : ListAdapter<UserEntity, UserHolder>(DIFF_CALLBACK) {
 
-    inner class UserHolder(val binding: ItemListHomeBinding) :
+    inner class UserHolder(private val binding: ItemListHomeBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
             fun bind(userGithub: UserEntity){
@@ -27,13 +32,18 @@ class UserAdapter : ListAdapter<UserEntity, UserHolder>(DIFF_CALLBACK) {
                     }
 
                     cardItem.setOnClickListener {
-                        root.context.startActivity(Intent(root.context,DetailActivity::class.java))
+                        root.context.startActivity(Intent(root.context, DetailActivity::class.java)
+                            .putExtra(NAME, userGithub.login)
+                            .putExtra(USER_ENTITY, userGithub))
                     }
                 }
             }
     }
 
     companion object {
+        const val NAME = "nama"
+        const val USER_ENTITY = "user_entity"
+
         val DIFF_CALLBACK: DiffUtil.ItemCallback<UserEntity> =
             object : DiffUtil.ItemCallback<UserEntity>() {
                 override fun areItemsTheSame(oldItem: UserEntity, newItem: UserEntity): Boolean {

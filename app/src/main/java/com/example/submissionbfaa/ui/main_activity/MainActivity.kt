@@ -1,4 +1,4 @@
-package com.example.submissionbfaa.ui
+package com.example.submissionbfaa.ui.main_activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -30,7 +30,14 @@ class MainActivity : AppCompatActivity() {
         val userViewModel: UserViewModel by viewModels {factory}
         val adapterUser: UserAdapter by inject()
 
+        binding.apply {
+            emptyGroupMain.visibility = View.GONE
+            binding.pbLoading.visibility = View.VISIBLE
+            mainRv.visibility = View.GONE
+        }
+
         userViewModel.getUserGithub().observe(this){status ->
+
             if (status != null){
                 when(status){
                     is Status.Loading -> {
@@ -39,11 +46,21 @@ class MainActivity : AppCompatActivity() {
 
                     is Status.Success -> {
                         binding.pbLoading.visibility = View.GONE
+                        binding.mainRv.visibility = View.VISIBLE
                         val newData = status.data
                         adapterUser.submitList(newData)
+
+                        binding.apply {
+                            if (adapterUser.itemCount == 0){
+                                emptyGroupMain.visibility = View.VISIBLE
+                            }else{
+                                emptyGroupMain.visibility = View.GONE
+                            }
+                        }
                     }
 
                     is Status.Error -> {
+                        binding.mainRv.visibility = View.VISIBLE
                         binding.pbLoading.visibility = View.GONE
                         Log.e(TAG, status.error)
                         Toast.makeText(this@MainActivity, "Terjadi Kesalahan : ${status.error}", Toast.LENGTH_SHORT).show()
@@ -56,17 +73,6 @@ class MainActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@MainActivity)
             setHasFixedSize(true)
             adapter = adapterUser
-
-            binding.apply {
-                Log.e(TAG, "Size List : ${adapterUser.itemCount}")
-                if (adapterUser.itemCount == 0){
-                    emptyGroupMain.visibility = View.VISIBLE
-                }else{
-                    emptyGroupMain.visibility = View.GONE
-                }
-            }
         }
-
-
     }
 }

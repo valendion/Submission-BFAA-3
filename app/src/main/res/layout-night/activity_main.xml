@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.main_activity.MainActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/mainToolbar"
@@ -52,7 +52,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:contentDescription="@string/imageNoData"
-        android:src="@drawable/ic_no_data"
+        android:src="@drawable/ic_no_data_show"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@id/emptyDataTv"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,7 +77,8 @@
         android:id="@+id/pb_loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
+        android:visibility="visible"
+        android:indeterminate="true"
         app:indicatorColor="@color/blue_primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

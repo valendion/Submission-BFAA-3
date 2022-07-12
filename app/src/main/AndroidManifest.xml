@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SubmissionBFAA">
         <activity
-            android:name=".ui.DetailActivity"
+            android:name=".ui.detail_activity.DetailActivity"
             android:exported="false" />
         <activity
             android:name=".ui.FavoriteActivity"
@@ -26,7 +26,7 @@
             android:name=".ui.SplashScreenActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.main_activity.MainActivity"
             android:exported="true"
             android:windowSoftInputMode="stateVisible|adjustPan">
             <intent-filter>

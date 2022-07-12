@@ -1,6 +1,7 @@
 package com.example.submissionbfaa.data.remote.network
 
 
+import androidx.lifecycle.LiveData
 import com.example.submissionbfaa.data.remote.model.Follower
 import com.example.submissionbfaa.data.remote.model.ItemSearch
 import com.example.submissionbfaa.data.remote.model.DetailUser
@@ -19,9 +20,9 @@ interface ApiServiceUser {
     suspend fun getUserDetail(@Path("username") username: String): DetailUser
 
     @GET("users/{username}/followers")
-    suspend fun getUserFollower(@Path("username") username: String): MutableList<Follower>
+    suspend fun getUserFollower(@Path("username") username: String): List<Follower>
 
     @GET("users/{username}/following")
-    suspend fun getUserFollowing(@Path("username") username: String): MutableList<Follower>
+    suspend fun getUserFollowing(@Path("username") username: String): List<Follower>
 }
 
