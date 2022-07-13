@@ -7,7 +7,7 @@
     tools:context=".ui.detail_activity.DetailActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/mainToolbar"
+        android:id="@+id/detailToolbar"
         android:layout_width="match_parent"
         app:menu="@menu/setting_menu"
         app:title="Detail User"
@@ -27,7 +27,7 @@
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainToolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/detailToolbar" />
 
     <androidx.appcompat.widget.AppCompatImageView
     android:id="@+id/btnFavorite"

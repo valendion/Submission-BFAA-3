@@ -1,12 +1,14 @@
 package com.example.submissionbfaa.data.remote.model
 
+import com.example.submissionbfaa.data.local.entity.UserEntity
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
-
+@JsonClass(generateAdapter = true)
 data class ItemSearch(
     @Json(name = "total_count")
     var totalCount: Int,
 
     @Json(name = "items")
-    var items: MutableList<DetailUser>
+    var items: List<User>
 )

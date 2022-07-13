@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -41,8 +42,11 @@ class DetailActivity : AppCompatActivity() {
         name = intent.getStringExtra(UserAdapter.NAME)!!
         var userEntity = intent.getParcelableExtra<UserEntity>(UserAdapter.USER_ENTITY)
 
-        binding.groupDetail.visibility = View.GONE
-        binding.pbLoading.visibility = View.VISIBLE
+        binding.apply {
+            groupDetail.visibility = View.GONE
+            binding.pbLoading.visibility = View.VISIBLE
+            setSupportActionBar(detailToolbar)
+        }
 
         val factory: ViewModelFactory by inject()
         val userViewModel: UserViewModel by viewModels { factory }
@@ -59,10 +63,13 @@ class DetailActivity : AppCompatActivity() {
                 binding.btnFavorite.setOnClickListener {
                     if (status){
                         userEntity?.let { it1 -> userViewModel.deleteUser(it1) }
+                        Toast.makeText(this@DetailActivity, "Berhasil dihapus dari favorite", Toast.LENGTH_SHORT).show()
                     }else{
                         userEntity?.let { it1 -> userViewModel.saveUser(it1) }
+                        Toast.makeText(this@DetailActivity, "Berhasil ditambahkan ke favorite", Toast.LENGTH_SHORT).show()
                     }
                     startActivity(Intent(this@DetailActivity, MainActivity::class.java))
+                    finishAffinity()
                 }
             }
 
@@ -91,11 +98,11 @@ class DetailActivity : AppCompatActivity() {
                             nameTv.text = data.name ?: empty
                             usernameTv.text = data.login ?: empty
                             followerTv.text =
-                                getString(R.string.follower, data.followers.toString() ?: empty)
+                                getString(R.string.follower, data.followers.toString())
                             locationTv.text = data.location ?: empty
                             textCompany.text = data.company ?: empty
                             followingTv.text =
-                                getString(R.string.following, data.following.toString() ?: empty)
+                                getString(R.string.following, data.following.toString())
                         }
                     }
 
@@ -107,6 +114,9 @@ class DetailActivity : AppCompatActivity() {
                 }
             }
         }
+
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
     }
 
     private fun setMarked(isMark: Boolean){

@@ -1,12 +1,13 @@
 package com.example.submissionbfaa.data.remote.network
 
 
-import androidx.lifecycle.LiveData
+import com.example.submissionbfaa.data.remote.model.DetailUser
 import com.example.submissionbfaa.data.remote.model.Follower
 import com.example.submissionbfaa.data.remote.model.ItemSearch
-import com.example.submissionbfaa.data.remote.model.DetailUser
 import com.example.submissionbfaa.data.remote.model.User
-import retrofit2.http.*
+import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiServiceUser {
 

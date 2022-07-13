@@ -9,6 +9,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 @Entity(tableName = "user")
+@JsonClass(generateAdapter = true)
 data class UserEntity(
 
     @PrimaryKey
@@ -16,8 +17,8 @@ data class UserEntity(
     var login: String = "",
 
     @ColumnInfo(name = "avatar_url")
-    var avatarUrl: String,
+    var avatarUrl: String = "",
 
     @ColumnInfo(name = "isFavorite")
-    var isMarked: Boolean,
+    var isMarked: Boolean = false,
 ): Parcelable

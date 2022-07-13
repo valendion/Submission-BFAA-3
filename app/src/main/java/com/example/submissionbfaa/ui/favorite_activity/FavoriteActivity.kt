@@ -37,6 +37,7 @@ class FavoriteActivity : AppCompatActivity() {
             emptyGroupDetail.visibility = View.GONE
             pbLoading.visibility = View.VISIBLE
             favoriteRv.visibility = View.GONE
+            setSupportActionBar(favoriteToolbar)
         }
 
         userViewModel.getFavoriteUser().observe(this){status ->
@@ -72,6 +73,9 @@ class FavoriteActivity : AppCompatActivity() {
                 }
             }
         }
+
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
 
         binding.favoriteRv.apply {
             layoutManager = LinearLayoutManager(context)

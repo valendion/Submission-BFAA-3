@@ -8,8 +8,10 @@ import com.example.submissionbfaa.data.local.entity.UserEntity
 import com.example.submissionbfaa.data.local.room.UserDao
 import com.example.submissionbfaa.data.remote.model.DetailUser
 import com.example.submissionbfaa.data.remote.model.Follower
+import com.example.submissionbfaa.data.remote.model.User
 import com.example.submissionbfaa.data.remote.network.ApiServiceUser
 import com.example.submissionbfaa.utils.Status
+import org.w3c.dom.Entity
 
 class UserRepository(
     private val apiServiceUser: ApiServiceUser,
@@ -31,14 +33,14 @@ class UserRepository(
                         isMarked
                     )
                 }
-                userDao.deleteAll()
-                userDao.insertUser(userList)
+//                userDao.deleteAll()
+//                userDao.insertUser(userList)
 
-                val localData: LiveData<Status<List<UserEntity>>> = userDao.getUsersGithub().map {
-                    Status.Success(it)
-                }
+//                val localData: LiveData<Status<List<UserEntity>>> = userDao.getUsersGithub().map {
+//                    Status.Success(it)
+//                }
 
-                emitSource(localData)
+                emit(Status.Success(userList))
             } catch (e: Exception) {
                 Log.d("UserRepository", "getUserGithub: ${e.message.toString()}")
                 emit(Status.Error(e.message.toString()))
@@ -63,7 +65,13 @@ class UserRepository(
 
     suspend fun setUserMarked(userEntity: UserEntity, userMarkState: Boolean) {
         userEntity.isMarked = userMarkState
-        userDao.updateUser(userEntity)
+        if (userMarkState){
+            userEntity.isMarked = userMarkState
+            userDao.insertUser(userEntity)
+        }else{
+            userDao.deleteUser(userEntity)
+        }
+//        userDao.updateUser(userEntity)
     }
 
     fun getDetailUser(username: String): LiveData<Status<DetailUser>> {
@@ -111,7 +119,15 @@ class UserRepository(
 
             try {
                 val response = apiServiceUser.getUserSearch(username)
-                emit(Status.Success(response))
+                val userList = response.items.map {
+                    val isMarked = userDao.isUserBookmarked(it.login)
+                    UserEntity(
+                        it.login,
+                        it.avatarUrl,
+                        isMarked
+                    )
+                }
+                emit(Status.Success(userList))
             }catch (e: Exception){
                 emit(Status.Error(e.message.toString()))
             }

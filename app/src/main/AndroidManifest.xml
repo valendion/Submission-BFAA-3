@@ -16,10 +16,12 @@
         android:theme="@style/Theme.SubmissionBFAA">
         <activity
             android:name=".ui.detail_activity.DetailActivity"
+            android:parentActivityName=".ui.main_activity.MainActivity"
             android:exported="false" />
         <activity
             android:name=".ui.favorite_activity.FavoriteActivity"
             android:exported="false"
+            android:parentActivityName=".ui.main_activity.MainActivity"
             android:label="@string/title_activity_favorite"
             android:theme="@style/Theme.SubmissionBFAA.NoActionBar" />
         <activity

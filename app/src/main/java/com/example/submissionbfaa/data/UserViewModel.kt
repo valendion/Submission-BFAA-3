@@ -32,4 +32,6 @@ class UserViewModel(private val userRepository: UserRepository) : ViewModel() {
 
     fun getFollowing(username: String) =  userRepository.getFollowing(username)
 
+    fun getSearch(username: String) =  userRepository.getSearch(username)
+
 }

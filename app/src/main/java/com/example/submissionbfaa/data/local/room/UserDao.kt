@@ -14,10 +14,13 @@ interface UserDao {
     fun getUsersFavorite(): LiveData<List<UserEntity>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertUser(news: List<UserEntity>)
+    suspend fun insertUser(user: UserEntity)
 
     @Update
-    suspend fun updateUser(news: UserEntity)
+    suspend fun updateUser(user: UserEntity)
+
+    @Delete
+    suspend fun deleteUser(user: UserEntity)
 
     @Query("DELETE FROM user WHERE isFavorite = 0")
     suspend fun deleteAll()
@@ -25,4 +28,6 @@ interface UserDao {
     @Query("SELECT EXISTS(SELECT * FROM user WHERE login = :login AND isFavorite = 1)")
     suspend fun isUserBookmarked(login: String): Boolean
 
+//    @Query("SELECT EXISTS(SELECT * FROM user WHERE isFavorite = 1)")
+//    suspend fun isUserBookmarked(): Boolean
 }

@@ -9,7 +9,7 @@ class TokenInterceptor: Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
         val newRequest: Request = chain.request().newBuilder()
-            .header(BuildConfig.API_KEY, BuildConfig.VALUE)
+            .header("Authorization", "token ${BuildConfig.API_KEY}")
             .build()
 
         return chain.proceed(newRequest)

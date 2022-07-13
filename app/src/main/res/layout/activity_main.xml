@@ -29,6 +29,7 @@
         app:startIconDrawable="@drawable/ic_search_24_black">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputEditSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

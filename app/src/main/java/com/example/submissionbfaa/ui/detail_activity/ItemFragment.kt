@@ -74,7 +74,6 @@ class ItemFragment() : Fragment() {
                                         binding.detailRecycler.visibility = View.VISIBLE
                                         pbLoading.visibility = View.GONE
                                         val data = ArrayList(status.data)
-                                        Log.e(TAG, "Data Follower : $data")
                                         followAdapter.setList(data)
                                     }
 
@@ -110,7 +109,6 @@ class ItemFragment() : Fragment() {
                                         binding.detailRecycler.visibility = View.VISIBLE
                                         pbLoading.visibility = View.GONE
                                         val data = ArrayList(status.data)
-                                        Log.e(TAG, "Data Follower : $data")
                                         followAdapter.setList(ArrayList(data))
                                     }
 
