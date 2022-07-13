@@ -1,5 +1,6 @@
 package com.example.submissionbfaa.ui.detail_activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -12,6 +13,8 @@ import com.example.submissionbfaa.data.UserViewModel
 import com.example.submissionbfaa.data.ViewModelFactory
 import com.example.submissionbfaa.data.local.entity.UserEntity
 import com.example.submissionbfaa.databinding.ActivityDetailBinding
+import com.example.submissionbfaa.ui.favorite_activity.FavoriteActivity
+import com.example.submissionbfaa.ui.main_activity.MainActivity
 import com.example.submissionbfaa.ui.main_activity.UserAdapter
 import com.example.submissionbfaa.utils.Constant
 import com.example.submissionbfaa.utils.Status
@@ -26,7 +29,7 @@ class DetailActivity : AppCompatActivity() {
 
     var name: String = ""
 
-    var userEntity: UserEntity = UserEntity()
+//    var userEntity: UserEntity = UserEntity()
 
     private lateinit var binding: ActivityDetailBinding
 
@@ -36,7 +39,7 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         name = intent.getStringExtra(UserAdapter.NAME)!!
-        userEntity = intent.getParcelableExtra(UserAdapter.USER_ENTITY)!!
+        var userEntity = intent.getParcelableExtra<UserEntity>(UserAdapter.USER_ENTITY)
 
         binding.groupDetail.visibility = View.GONE
         binding.pbLoading.visibility = View.VISIBLE
@@ -50,15 +53,19 @@ class DetailActivity : AppCompatActivity() {
             tab.text = Constant.NAME_TABS[position]
         }.attach()
 
-        userEntity.isMarked?.let { status ->
-            setMarked(status)
-            binding.btnFavorite.setOnClickListener {
-                if (status){
-                    userViewModel.deleteUser(userEntity)
-                }else{
-                    userViewModel.saveUser(userEntity)
+        userEntity?.isMarked.let { status ->
+            if (status != null) {
+                setMarked(status)
+                binding.btnFavorite.setOnClickListener {
+                    if (status){
+                        userEntity?.let { it1 -> userViewModel.deleteUser(it1) }
+                    }else{
+                        userEntity?.let { it1 -> userViewModel.saveUser(it1) }
+                    }
+                    startActivity(Intent(this@DetailActivity, MainActivity::class.java))
                 }
             }
+
         }
 
         userViewModel.getDetailUser(name).observe(this) { status ->
@@ -118,8 +125,8 @@ class DetailActivity : AppCompatActivity() {
                 )
             )
         }
-
-
     }
+
+
 
 }

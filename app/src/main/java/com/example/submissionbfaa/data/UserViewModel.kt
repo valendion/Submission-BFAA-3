@@ -11,13 +11,6 @@ import kotlinx.coroutines.launch
 
 class UserViewModel(private val userRepository: UserRepository) : ViewModel() {
 
-    private var _usernameClick = MutableLiveData<String>()
-    val usernameClick: LiveData<String> get() = _usernameClick
-
-    fun setUsernameClick(username: String) {
-        _usernameClick.value = username
-    }
-
     fun getUserGithub() = userRepository.getUserGithub()
     fun getFavoriteUser() = userRepository.getFavoriteUser()
 

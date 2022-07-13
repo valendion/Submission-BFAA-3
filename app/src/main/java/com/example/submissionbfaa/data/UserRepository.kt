@@ -46,8 +46,19 @@ class UserRepository(
         }
     }
 
-    fun getFavoriteUser(): LiveData<List<UserEntity>> {
-        return userDao.getUsersFavorite()
+    fun getFavoriteUser(): LiveData<Status<List<UserEntity>>> {
+        return liveData {
+            emit(Status.Loading)
+
+            try {
+                val favoriteData: LiveData<Status<List<UserEntity>>> = userDao.getUsersFavorite().map {
+                    Status.Success(it)
+                }
+                emitSource(favoriteData)
+            }catch (e: Exception){
+                emit(Status.Error(e.message.toString()))
+            }
+        }
     }
 
     suspend fun setUserMarked(userEntity: UserEntity, userMarkState: Boolean) {
@@ -89,6 +100,19 @@ class UserRepository(
                 val response = apiServiceUser.getUserFollowing(username)
                 emit(Status.Success(response))
             }catch (e:  Exception){
+                emit(Status.Error(e.message.toString()))
+            }
+        }
+    }
+
+    fun getSearch(username: String): LiveData<Status<List<UserEntity>>>{
+        return liveData {
+            emit(Status.Loading)
+
+            try {
+                val response = apiServiceUser.getUserSearch(username)
+                emit(Status.Success(response))
+            }catch (e: Exception){
                 emit(Status.Error(e.message.toString()))
             }
         }

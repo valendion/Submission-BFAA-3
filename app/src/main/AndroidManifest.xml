@@ -18,7 +18,7 @@
             android:name=".ui.detail_activity.DetailActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.FavoriteActivity"
+            android:name=".ui.favorite_activity.FavoriteActivity"
             android:exported="false"
             android:label="@string/title_activity_favorite"
             android:theme="@style/Theme.SubmissionBFAA.NoActionBar" />

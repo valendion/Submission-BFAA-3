@@ -1,15 +1,20 @@
 package com.example.submissionbfaa.ui.main_activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.submissionbfaa.R
 import com.example.submissionbfaa.data.UserViewModel
 import com.example.submissionbfaa.data.ViewModelFactory
 import com.example.submissionbfaa.databinding.ActivityMainBinding
+import com.example.submissionbfaa.ui.favorite_activity.FavoriteActivity
 import com.example.submissionbfaa.utils.Status
 import org.koin.android.ext.android.inject
 
@@ -31,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         val adapterUser: UserAdapter by inject()
 
         binding.apply {
+            setSupportActionBar(mainToolbar)
             emptyGroupMain.visibility = View.GONE
             binding.pbLoading.visibility = View.VISIBLE
             mainRv.visibility = View.GONE
@@ -74,5 +80,17 @@ class MainActivity : AppCompatActivity() {
             setHasFixedSize(true)
             adapter = adapterUser
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main_menu,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.favorite -> startActivity(Intent(this@MainActivity, FavoriteActivity::class.java))
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

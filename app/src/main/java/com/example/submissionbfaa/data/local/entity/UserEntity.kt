@@ -16,8 +16,8 @@ data class UserEntity(
     var login: String = "",
 
     @ColumnInfo(name = "avatar_url")
-    var avatarUrl: String? = null,
+    var avatarUrl: String,
 
     @ColumnInfo(name = "isFavorite")
-    var isMarked: Boolean? = null,
+    var isMarked: Boolean,
 ): Parcelable
