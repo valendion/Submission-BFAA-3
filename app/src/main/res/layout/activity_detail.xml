@@ -10,6 +10,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/detailToolbar"
         android:layout_width="match_parent"
+        android:theme="@style/MyThemeOverlay_Toolbar"
         android:layout_height="wrap_content"
         android:background="@color/black_dark"
         app:layout_constraintTop_toTopOf="parent"

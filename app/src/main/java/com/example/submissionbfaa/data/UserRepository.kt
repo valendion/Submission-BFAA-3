@@ -33,12 +33,6 @@ class UserRepository(
                         isMarked
                     )
                 }
-//                userDao.deleteAll()
-//                userDao.insertUser(userList)
-
-//                val localData: LiveData<Status<List<UserEntity>>> = userDao.getUsersGithub().map {
-//                    Status.Success(it)
-//                }
 
                 emit(Status.Success(userList))
             } catch (e: Exception) {

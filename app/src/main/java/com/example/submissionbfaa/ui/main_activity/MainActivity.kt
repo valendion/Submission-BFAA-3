@@ -11,6 +11,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.submissionbfaa.R
 import com.example.submissionbfaa.data.UserViewModel
@@ -18,6 +19,9 @@ import com.example.submissionbfaa.data.ViewModelFactory
 import com.example.submissionbfaa.data.local.entity.UserEntity
 import com.example.submissionbfaa.databinding.ActivityMainBinding
 import com.example.submissionbfaa.ui.favorite_activity.FavoriteActivity
+import com.example.submissionbfaa.ui.setting_activity.SettingActivity
+import com.example.submissionbfaa.ui.setting_activity.SettingViewModel
+import com.example.submissionbfaa.ui.setting_activity.SettingViewModelFactory
 import com.example.submissionbfaa.utils.Status
 import org.koin.android.ext.android.inject
 
@@ -27,12 +31,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityMainBinding
-    private val factory: ViewModelFactory by inject()
-    private val userViewModel: UserViewModel by viewModels {factory}
+    private val userFactory: ViewModelFactory by inject()
+    private val userViewModel: UserViewModel by viewModels {userFactory}
     private val adapterUser: UserAdapter by inject()
 
+    private val factory: SettingViewModelFactory by inject()
+    private val settingViewModel: SettingViewModel by viewModels {factory}
+
     private var userSearch = listOf<UserEntity>()
-    var userMain = listOf<UserEntity>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +46,19 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        settingViewModel.getThemeSetting().observe(this){isDarkMode: Boolean ->
+            if (isDarkMode){
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            }else{
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+        }
 
+        binding.mainRv.apply {
+            layoutManager = LinearLayoutManager(this@MainActivity)
+            setHasFixedSize(true)
+            adapter = adapterUser
+        }
 
         binding.apply {
             setSupportActionBar(mainToolbar)
@@ -48,27 +66,7 @@ class MainActivity : AppCompatActivity() {
             binding.pbLoading.visibility = View.VISIBLE
             mainRv.visibility = View.GONE
 
-            inputEditSearch.addTextChangedListener(object : TextWatcher{
-                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-                }
-
-                override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-                }
-
-                override fun afterTextChanged(input: Editable?) {
-                    if (input?.isEmpty() == false){
-                        getSearch(input.toString())
-                    }else{
-                        adapterUser.submitList(userMain)
-                    }
-                }
-            })
-
         }
-
-
 
         userViewModel.getUserGithub().observe(this){status ->
 
@@ -82,7 +80,6 @@ class MainActivity : AppCompatActivity() {
                         binding.pbLoading.visibility = View.GONE
                         binding.mainRv.visibility = View.VISIBLE
                         val newData = status.data
-                        userMain = newData
                         adapterUser.submitList(newData)
 
                         binding.apply {
@@ -92,6 +89,24 @@ class MainActivity : AppCompatActivity() {
                                 emptyGroupMain.visibility = View.GONE
                             }
                         }
+
+                        binding.inputEditSearch.addTextChangedListener(object : TextWatcher{
+                            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+                            }
+
+                            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+                            }
+
+                            override fun afterTextChanged(input: Editable?) {
+                                if (input?.isEmpty() == false){
+                                    getSearch(input.toString())
+                                }else{
+                                    adapterUser.submitList(newData)
+                                }
+                            }
+                        })
                     }
 
                     is Status.Error -> {
@@ -104,11 +119,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        binding.mainRv.apply {
-            layoutManager = LinearLayoutManager(this@MainActivity)
-            setHasFixedSize(true)
-            adapter = adapterUser
-        }
+
+
+
     }
 
     private fun getSearch(username: String){
@@ -127,13 +140,17 @@ class MainActivity : AppCompatActivity() {
                         userSearch = newData
                         adapterUser.submitList(newData)
 
+                        Toast.makeText(this, adapterUser.itemCount.toString(), Toast.LENGTH_SHORT).show()
                         binding.apply {
                             if (adapterUser.itemCount == 0){
                                 emptyGroupMain.visibility = View.VISIBLE
                             }else{
                                 emptyGroupMain.visibility = View.GONE
                             }
+
                         }
+
+
                     }
 
                     is Status.Error -> {
@@ -155,7 +172,9 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.favorite -> startActivity(Intent(this@MainActivity, FavoriteActivity::class.java))
+            R.id.setting -> startActivity(Intent(this@MainActivity, SettingActivity::class.java))
         }
         return super.onOptionsItemSelected(item)
     }
+
 }

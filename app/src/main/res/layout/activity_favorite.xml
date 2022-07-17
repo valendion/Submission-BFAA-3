@@ -8,6 +8,7 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/favoriteToolbar"
+        android:theme="@style/MyThemeOverlay_Toolbar"
         android:layout_width="match_parent"
         app:menu="@menu/setting_menu"
         app:title="Github Favorite User "

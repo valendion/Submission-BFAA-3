@@ -13,7 +13,6 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 val networkModule = module {
     single { TokenInterceptor() }
     single { Moshi.Builder().build() }
-//    single { GsonBuilder().setLenient().create()}
     factory { HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY) }
     factory { provideOkHttp(get(), get()) }
     single { provideRetrofit(get(), get()) }

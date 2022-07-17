@@ -18,7 +18,6 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "BASE_URL", BASE_URL)
         buildConfigField("String", "API_KEY", API_KEY)
-        buildConfigField("String", "VALUE", VALUE)
 
     }
 
@@ -51,7 +50,6 @@ dependencies {
 
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
     implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
     implementation "com.squareup.retrofit2:converter-moshi:2.4.0"
 
@@ -85,6 +83,12 @@ dependencies {
 
     //Coil
     implementation("io.coil-kt:coil:2.1.0")
+
+    //Preference
+    implementation 'androidx.preference:preference:1.2.0'
+
+    //DataStore
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
 
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
