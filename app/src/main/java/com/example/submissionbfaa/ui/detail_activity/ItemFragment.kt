@@ -16,7 +16,7 @@ import com.example.submissionbfaa.utils.Status
 import org.koin.android.ext.android.inject
 
 
-class ItemFragment() : Fragment() {
+class ItemFragment : Fragment() {
 
     private var _binding: FragmentItemBinding? = null
 
@@ -28,7 +28,7 @@ class ItemFragment() : Fragment() {
 
     fun newInstance(index: Int, username: String): ItemFragment {
         val fragment = ItemFragment()
-        var args = Bundle()
+        val args = Bundle()
         args.putInt("index", index)
         args.putString("name", username)
         fragment.arguments = args

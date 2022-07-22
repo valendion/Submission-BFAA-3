@@ -8,10 +8,8 @@ import com.example.submissionbfaa.data.local.entity.UserEntity
 import com.example.submissionbfaa.data.local.room.UserDao
 import com.example.submissionbfaa.data.remote.model.DetailUser
 import com.example.submissionbfaa.data.remote.model.Follower
-import com.example.submissionbfaa.data.remote.model.User
 import com.example.submissionbfaa.data.remote.network.ApiServiceUser
 import com.example.submissionbfaa.utils.Status
-import org.w3c.dom.Entity
 
 class UserRepository(
     private val apiServiceUser: ApiServiceUser,

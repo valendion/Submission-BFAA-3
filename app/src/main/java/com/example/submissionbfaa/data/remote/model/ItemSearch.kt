@@ -1,6 +1,5 @@
 package com.example.submissionbfaa.data.remote.model
 
-import com.example.submissionbfaa.data.local.entity.UserEntity
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 

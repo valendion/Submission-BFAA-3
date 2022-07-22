@@ -10,7 +10,7 @@
         android:id="@+id/detailToolbar"
         android:layout_width="match_parent"
         app:menu="@menu/setting_menu"
-        app:title="Detail User"
+        app:title="@string/detail_user"
         app:titleTextColor="@color/white"
         android:background="@color/grey_primary"
         app:layout_constraintTop_toTopOf="parent"
@@ -51,7 +51,7 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/usernameTv"
-        style="@style/textsubTitleWhite"
+        style="@style/textSubTitleWhite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -83,7 +83,7 @@
         android:layout_marginTop="16dp"
         android:drawablePadding="@dimen/distance_8"
         android:gravity="start"
-        android:text="SUN"
+        android:text="@string/sun"
         android:visibility="visible"
         app:drawableStartCompat="@drawable/ic_company"
         app:layout_constraintEnd_toEndOf="@+id/followingTv"

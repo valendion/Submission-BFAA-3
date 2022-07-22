@@ -8,14 +8,10 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.submissionbfaa.R
-import com.example.submissionbfaa.data.UserViewModel
-import com.example.submissionbfaa.data.ViewModelFactory
 import com.example.submissionbfaa.data.local.entity.UserEntity
 import com.example.submissionbfaa.databinding.ItemListHomeBinding
 import com.example.submissionbfaa.ui.detail_activity.DetailActivity
 import com.example.submissionbfaa.ui.main_activity.UserAdapter.UserHolder
-import org.koin.android.ext.android.inject
-import androidx.activity.viewModels as viewModels
 
 class UserAdapter : ListAdapter<UserEntity, UserHolder>(DIFF_CALLBACK) {
 

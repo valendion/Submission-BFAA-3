@@ -14,7 +14,6 @@ import com.example.submissionbfaa.data.UserViewModel
 import com.example.submissionbfaa.data.ViewModelFactory
 import com.example.submissionbfaa.data.local.entity.UserEntity
 import com.example.submissionbfaa.databinding.ActivityDetailBinding
-import com.example.submissionbfaa.ui.favorite_activity.FavoriteActivity
 import com.example.submissionbfaa.ui.main_activity.MainActivity
 import com.example.submissionbfaa.ui.main_activity.UserAdapter
 import com.example.submissionbfaa.utils.Constant
@@ -30,8 +29,6 @@ class DetailActivity : AppCompatActivity() {
 
     var name: String = ""
 
-//    var userEntity: UserEntity = UserEntity()
-
     private lateinit var binding: ActivityDetailBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +37,9 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         name = intent.getStringExtra(UserAdapter.NAME)!!
-        var userEntity = intent.getParcelableExtra<UserEntity>(UserAdapter.USER_ENTITY)
+        val userEntity = intent.getParcelableExtra<UserEntity>(UserAdapter.USER_ENTITY)
+
+        val title = listOf(resources.getString(R.string.follower1), resources.getString(R.string.following1))
 
         binding.apply {
             groupDetail.visibility = View.GONE
@@ -54,7 +53,7 @@ class DetailActivity : AppCompatActivity() {
         val adapter = ViewPagerAdapter(supportFragmentManager, lifecycle, name)
         binding.followVP.adapter = adapter
         TabLayoutMediator(binding.followTL, binding.followVP) { tab, position ->
-            tab.text = Constant.NAME_TABS[position]
+            tab.text = title[position]
         }.attach()
 
         userEntity?.isMarked.let { status ->
@@ -63,10 +62,10 @@ class DetailActivity : AppCompatActivity() {
                 binding.btnFavorite.setOnClickListener {
                     if (status){
                         userEntity?.let { it1 -> userViewModel.deleteUser(it1) }
-                        Toast.makeText(this@DetailActivity, "Berhasil dihapus dari favorite", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@DetailActivity, getString(R.string.berhasil_dihapus_dari_favorite), Toast.LENGTH_SHORT).show()
                     }else{
                         userEntity?.let { it1 -> userViewModel.saveUser(it1) }
-                        Toast.makeText(this@DetailActivity, "Berhasil ditambahkan ke favorite", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@DetailActivity, getString(R.string.berhasil_ditambahkan_dari_favorite), Toast.LENGTH_SHORT).show()
                     }
                     startActivity(Intent(this@DetailActivity, MainActivity::class.java))
                     finishAffinity()

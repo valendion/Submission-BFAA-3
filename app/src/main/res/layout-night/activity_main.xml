@@ -10,7 +10,7 @@
         android:id="@+id/mainToolbar"
         android:layout_width="match_parent"
         app:menu="@menu/main_menu"
-        app:title="Github Search User"
+        app:title="@string/github_search_user"
         app:titleTextColor="@color/white_bg"
         android:background="@color/grey_primary"
         app:layout_constraintTop_toTopOf="parent"

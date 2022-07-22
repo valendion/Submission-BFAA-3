@@ -1,11 +1,8 @@
 package com.example.submissionbfaa.data
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.submissionbfaa.data.local.entity.UserEntity
-import com.example.submissionbfaa.data.remote.model.Follower
 import com.example.submissionbfaa.utils.CoroutineHelper
 import kotlinx.coroutines.launch
 

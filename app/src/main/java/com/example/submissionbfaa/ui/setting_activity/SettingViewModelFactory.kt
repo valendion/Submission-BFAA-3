@@ -3,6 +3,7 @@ package com.example.submissionbfaa.ui.setting_activity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 
+@Suppress("UNCHECKED_CAST")
 class SettingViewModelFactory(private val settingDataStore: SettingDataStore):
     ViewModelProvider.NewInstanceFactory() {
 

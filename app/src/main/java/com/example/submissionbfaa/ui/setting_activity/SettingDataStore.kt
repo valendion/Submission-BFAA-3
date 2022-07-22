@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.map
 
 class SettingDataStore(private val dataStore: DataStore<Preferences>) {
     private val THEME_KEY = booleanPreferencesKey("theme_setting")
+    private val LOCALE_KEY = booleanPreferencesKey("locale_setting")
 
     fun getThemeSetting(): Flow<Boolean> {
         return dataStore.data.map { value: Preferences ->
@@ -22,4 +23,18 @@ class SettingDataStore(private val dataStore: DataStore<Preferences>) {
             value[THEME_KEY] = isDarkMode
         }
     }
+
+    fun getLocaleSetting(): Flow<Boolean> {
+        return dataStore.data.map { value: Preferences ->
+            value[LOCALE_KEY] ?: false
+        }
+    }
+
+    suspend fun saveLocaleSetting(isLocaleEnglish: Boolean){
+        dataStore.edit{value: MutablePreferences ->
+            value[LOCALE_KEY] = isLocaleEnglish
+        }
+    }
+
+
 }

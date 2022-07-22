@@ -22,6 +22,7 @@ import com.example.submissionbfaa.ui.favorite_activity.FavoriteActivity
 import com.example.submissionbfaa.ui.setting_activity.SettingActivity
 import com.example.submissionbfaa.ui.setting_activity.SettingViewModel
 import com.example.submissionbfaa.ui.setting_activity.SettingViewModelFactory
+import com.example.submissionbfaa.utils.LocaleHelper
 import com.example.submissionbfaa.utils.Status
 import org.koin.android.ext.android.inject
 
@@ -54,6 +55,14 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        settingViewModel.getLocaleSetting().observe(this) { isLocaleEnglish ->
+            if (isLocaleEnglish) {
+                LocaleHelper.changeLocale(this, "en")
+            } else {
+                LocaleHelper.changeLocale(this, "in")
+            }
+        }
+
         binding.mainRv.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
             setHasFixedSize(true)
@@ -83,6 +92,7 @@ class MainActivity : AppCompatActivity() {
                         adapterUser.submitList(newData)
 
                         binding.apply {
+                            Log.e(TAG, adapterUser.itemCount.toString())
                             if (adapterUser.itemCount == 0){
                                 emptyGroupMain.visibility = View.VISIBLE
                             }else{
@@ -107,6 +117,7 @@ class MainActivity : AppCompatActivity() {
                                 }
                             }
                         })
+
                     }
 
                     is Status.Error -> {

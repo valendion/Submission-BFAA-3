@@ -1,11 +1,6 @@
 package com.example.submissionbfaa.di
 
 import android.app.Application
-import android.content.Context
-import androidx.datastore.core.DataStore
-
-import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.preferences.preferencesDataStore
 import com.example.submissionbfaa.data.UserRepository
 import com.example.submissionbfaa.data.UserViewModel
 import com.example.submissionbfaa.data.ViewModelFactory
@@ -13,8 +8,6 @@ import com.example.submissionbfaa.data.local.room.databaseModule
 import com.example.submissionbfaa.data.remote.network.networkModule
 import com.example.submissionbfaa.ui.detail_activity.FollowAdapter
 import com.example.submissionbfaa.ui.main_activity.UserAdapter
-import com.example.submissionbfaa.ui.setting_activity.SettingViewModel
-import com.example.submissionbfaa.ui.setting_activity.SettingViewModelFactory
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.androidx.viewmodel.dsl.viewModel

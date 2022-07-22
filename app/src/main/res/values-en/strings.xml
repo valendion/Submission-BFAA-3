@@ -1,39 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">SubmissionBFAA</string>
-
-    <string name="githubuser">GithubUser</string>
-    <string name="cari">Cari…</string>
     <string name="parepare_indonesia">Parepare, Indonesia</string>
     <string name="follower">Follower: %1$s</string>
     <string name="following">Following: %1$s</string>
     <string name="repository">Repository: %1$s</string>
     <string name="localization">localization</string>
     <string name="follower1">Follower</string>
-    <string name="github_user_app">GithubUserApp</string>
-    <string name="following1">Following</string>
-    <string name="valendionpp" translatable="false">\u0040valendionpp</string>
     <string name="enter_word">Enter the word</string>
-    <string name="search">Search</string>
+    <string name="following1">Following</string>
     <string name="empty_data">Empty Data</string>
-    <string name="valendion" translatable="false">Valendion</string>
+    <string name="github_user_app">GithubUserApp</string>
+    <string name="search">Search</string>
     <string name="imageNoData">Image No Data</string>
     <string name="imageSplashScreen">Image Splash Screen</string>
+
     <string name="about">About</string>
+
+    <string name="favorite">Favorite</string>
+    <string name="setting">Setting</string>
+
+    <string name="title_dark_mode">Dark Mode</string>
+    <string name="text_dark_mode">Dark Mode</string>
+
+    <string name="berhasil_dihapus_dari_favorite">Success delete from favorite</string>
+    <string name="berhasil_ditambahkan_dari_favorite">Success add from favorite</string>
     <string name="title_activity_favorite">FavoriteActivity</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
+    <string name="githubuser">GithubUser</string>
+    <string name="cari">Search…</string>
+
     <string name="sun">Sun</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="favorite">Favorite</string>
-    <string name="setting">Setting</string>
-    <string name="key_dark_mode" translatable="false">dark_mode</string>
-    <string name="title_dark_mode">Dark Mode</string>
-    <string name="text_dark_mode">Dark Mode</string>
-
-    <string name="berhasil_dihapus_dari_favorite">Berhasil dihapus dari favorite</string>
-    <string name="berhasil_ditambahkan_dari_favorite">Berhasil ditambahkan ke favorite</string>
 
     <string name="change_language">Indonesia / English</string>
     <string name="github_search_user">Github Search User</string>

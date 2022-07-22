@@ -9,7 +9,7 @@
         android:id="@+id/favoriteToolbar"
         android:layout_width="match_parent"
         app:menu="@menu/setting_menu"
-        app:title="Github Favorite User "
+        app:title="@string/github_favorite_user"
         app:titleTextColor="@color/white"
         android:background="@color/grey_primary"
         app:layout_constraintTop_toTopOf="parent"

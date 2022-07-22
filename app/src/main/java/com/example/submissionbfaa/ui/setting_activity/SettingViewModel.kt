@@ -16,4 +16,14 @@ class SettingViewModel(private val pref: SettingDataStore): ViewModel() {
             pref.saveThemeSetting(isDarkMode)
         }
     }
+
+    fun getLocaleSetting(): LiveData<Boolean>{
+        return pref.getLocaleSetting().asLiveData()
+    }
+
+    fun saveLocaleSetting(isLocaleIndo: Boolean){
+        viewModelScope.launch {
+            pref.saveLocaleSetting(isLocaleIndo)
+        }
+    }
 }

@@ -9,7 +9,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/settingToolbar"
         android:layout_width="match_parent"
-        app:title="Setting"
+        app:title="@string/setting"
         app:titleTextColor="@color/white_bg"
         android:background="@color/grey_primary"
         app:layout_constraintTop_toTopOf="parent"
@@ -17,7 +17,7 @@
 
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/darkModeSwitch"
-        style="@style/textsubTitleWhite"
+        style="@style/textSubTitleWhite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/distance_16"
@@ -26,5 +26,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/settingToolbar" />
 
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/indoLocaleSwitch"
+        style="@style/textSubTitleWhite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/distance_16"
+        android:text="@string/change_language"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/darkModeSwitch" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

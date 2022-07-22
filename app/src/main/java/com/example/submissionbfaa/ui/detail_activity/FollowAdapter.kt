@@ -13,7 +13,7 @@ class FollowAdapter : RecyclerView.Adapter<FollowAdapter.FollowViewModel>() {
 
     private var _followers = arrayListOf<Follower>()
 
-    inner class FollowViewModel(val binding: ItemListHomeBinding) :
+    inner class FollowViewModel(private val binding: ItemListHomeBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(data: Follower) {

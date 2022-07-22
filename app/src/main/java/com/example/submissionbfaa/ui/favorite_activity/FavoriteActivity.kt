@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.submissionbfaa.data.UserViewModel
 import com.example.submissionbfaa.data.ViewModelFactory
 import com.example.submissionbfaa.databinding.ActivityFavoriteBinding
-import com.example.submissionbfaa.ui.main_activity.MainActivity
 import com.example.submissionbfaa.ui.main_activity.UserAdapter
 import com.example.submissionbfaa.utils.Status
 import org.koin.android.ext.android.inject
